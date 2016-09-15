@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PUSH</string>
+    <string name="nama">Banyumas Team</string>
+    <string name="detail">This is our team</string>
 </resources>
