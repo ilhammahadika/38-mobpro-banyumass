@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_all_email" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_all_inbox"
+            android:icon="@drawable/ic_mail_black_24dp"
+            android:title="All inboxes" />
+    </group>
+
+
+    <group android:id="@+id/group_email" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_primary"
+            android:icon="@drawable/ic_inbox_black_24dp"
+            android:title="Primary" />
+        <item
+            android:id="@+id/nav_social"
+            android:icon="@drawable/ic_people_black_24dp"
+            android:title="Social" />
+        <item
+            android:id="@+id/nav_promotions"
+            android:icon="@drawable/ic_local_offer_black_24dp"
+            android:title="Promotions" />
+    </group>
+
+
+    <group android:id="@+id/group_all_labels">
+        <item android:title="All labels">
+            <menu>
+                <item
+                    android:id="@+id/nav_starred"
+                    android:icon="@drawable/ic_grade_black_24dp"
+                    android:title="Starred" />
+                <item
+                    android:id="@+id/nav_important"
+                    android:icon="@drawable/ic_bookmark_black_24dp"
+                    android:title="Important" />
+                <item
+                    android:id="@+id/nav_sent"
+                    android:icon="@drawable/ic_send_black_24dp"
+                    android:title="Sent" />
+                <item
+                    android:id="@+id/nav_outbox"
+                    android:icon="@drawable/ic_forward_black_24dp"
+                    android:title="Outbox" />
+                <item
+                    android:id="@+id/nav_drafts"
+                    android:icon="@drawable/ic_insert_drive_file_black_24dp"
+                    android:title="Draft" />
+                <item
+                    android:id="@+id/nav_all_mail"
+                    android:icon="@drawable/ic_mail_black_24dp"
+                    android:title="All mail" />
+                <item
+                    android:id="@+id/nav_spam"
+                    android:icon="@drawable/ic_error_black_24dp"
+                    android:title="Spam" />
+                <item
+                    android:id="@+id/nav_trash"
+                    android:icon="@drawable/ic_delete_black_24dp"
+                    android:title="Trash" />
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/group_other" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Setings" />
+        <item
+            android:id="@+id/nav_help_feedback"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="Help and feedback" />
+    </group>
+
+    <group android:id="@+id/group_more_accounts" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_add_acount"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:title="Add account" />
+        <item
+            android:id="@+id/nav_manage_account"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Manage accounts" />
+    </group>
+
+</menu>

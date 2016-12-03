@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+    <ImageView
+    android:id="@+id/gmailitem_letter"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_centerVertical="true"
+    android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+    <TextView
+        android:id="@+id/gmailitem_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="Title"
+        android:layout_toRightOf="@id/gmailitem_letter"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+
+    <TextView
+        android:id="@+id/gmailitem_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="Greeting"
+        android:layout_toRightOf="@id/gmailitem_letter"
+        android:layout_below="@id/gmailitem_header"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
+    <TextView
+        android:id="@+id/gmailitem_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="email"
+        android:layout_below="@id/gmailitem_title"
+        android:layout_toRightOf="@id/gmailitem_letter"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+</RelativeLayout>
