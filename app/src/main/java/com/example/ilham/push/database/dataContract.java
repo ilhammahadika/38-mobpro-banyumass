@@ -8,9 +8,10 @@ import android.provider.BaseColumns;
 
 public class DataContract implements BaseColumns {
 
-    public static final String TABLE_NAME = "wishlist";
+    public static final String TABLE_NAME = "Property";
     public static final String COLUMN_NAME_TITLE = "title";
-    public static final String COLUMN_NAME_ADDRESS = "address";
+    public static final String COLUMN_NAME_ALAMAT = "alamat";
+    public static final String COLUMN_NAME_HARGA = "harga";
     public static final String COLUMN_NAME_TELP = "telp";
 
     public DataContract() {

@@ -1,15 +1,18 @@
 package com.example.ilham.push.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.example.ilham.push.InputActivity;
 import com.example.ilham.push.R;
 
 
@@ -46,6 +49,13 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.GmailVH> {
         TextDrawable textDrawable = TextDrawable.builder()
                 .buildRound(letter, colorGenerator.getRandomColor());
         holder.letter.setImageDrawable(textDrawable);
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myintent = new Intent(context, InputActivity.class);
+                context.startActivity(myintent);
+            }
+        });
     }
 
     @Override
@@ -58,6 +68,7 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.GmailVH> {
         TextView title;
         TextView email;
         ImageView letter;
+        RelativeLayout relativeLayout;
 
         public GmailVH(View itemView) {
             super(itemView);
@@ -65,6 +76,7 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.GmailVH> {
             title = (TextView) itemView.findViewById(R.id.gmailitem_title);
             email = (TextView) itemView.findViewById(R.id.gmailitem_email);
             letter = (ImageView) itemView.findViewById(R.id.gmailitem_letter);
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.rootView);
         }
     }
 }

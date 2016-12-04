@@ -1,5 +1,8 @@
 package com.example.ilham.push;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,16 +17,21 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.example.ilham.push.database.DataContract;
+import com.example.ilham.push.database.DataHelper;
 import com.example.ilham.push.fragment.AllInboxFragment;
 import com.example.ilham.push.fragment.PrimaryFragment;
 import com.example.ilham.push.fragment.PromotionsFragment;
 import com.example.ilham.push.fragment.SocialFragment;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     NavigationView navigationView;
+
     ToggleButton toggleButton;
     Toolbar toolbar;
     boolean b = true;
@@ -40,6 +48,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent myintent = new Intent(MainActivity.this, InputActivity.class);
+                startActivity(myintent);
             }
         });
 
@@ -54,41 +64,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null){
-            navigationView.setCheckedItem(R.id.nav_all_inbox);
+            navigationView.setCheckedItem(R.id.nav_starred);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new AllInboxFragment())
                     .commit();
         }
-
-
-
-        View view =  navigationView.getHeaderView(0);
-        toggleButton = (ToggleButton) view.findViewById(R.id.account_view_icon_button);
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                System.out.println("STATE : "+b);
-               if (b){
-                   navigationView.getMenu().setGroupVisible(R.id.group_all_email, false);
-                   navigationView.getMenu().setGroupVisible(R.id.group_email, false);
-                   navigationView.getMenu().setGroupVisible(R.id.group_all_labels, false);
-                   navigationView.getMenu().setGroupVisible(R.id.group_other, false);
-
-                   navigationView.getMenu().setGroupVisible(R.id.group_more_accounts, true);
-               }else {
-                   navigationView.getMenu().setGroupVisible(R.id.group_all_email, true);
-                   navigationView.getMenu().setGroupVisible(R.id.group_email, true);
-                   navigationView.getMenu().setGroupVisible(R.id.group_all_labels, true);
-                   navigationView.getMenu().setGroupVisible(R.id.group_other, true);
-
-                   navigationView.getMenu().setGroupVisible(R.id.group_more_accounts, false);
-               }
-
-            }
-        });
-
-
-
     }
 
     public void isChecked(boolean b){
@@ -98,6 +78,7 @@ public class MainActivity extends AppCompatActivity
             System.out.println("FALLLLLLLSEEEEEEEE");
         }
     }
+
 
 
 
@@ -139,21 +120,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_all_inbox) {
+        if (id == R.id.nav_starred) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new AllInboxFragment())
                     .commit();
-        } else if (id == R.id.nav_primary) {
+        } else if (id == R.id.nav_important) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new PrimaryFragment())
-                    .commit();
-        }else if (id == R.id.nav_social) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new SocialFragment())
-                    .commit();
-        } else if (id == R.id.nav_promotions) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new PromotionsFragment())
                     .commit();
         }
 
